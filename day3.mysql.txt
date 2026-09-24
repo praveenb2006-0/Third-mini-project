@@ -56,3 +56,4 @@ WHERE employee_id IN (2, 4, 8, 10, 14, 16, 18, 20);
  -- select min(salary) as min from employees;
 -- select max(salary) as max from employees;
 -- select gender, min(salary) as min,max(salary) as max from employees group by gender;
+select * from employess;
