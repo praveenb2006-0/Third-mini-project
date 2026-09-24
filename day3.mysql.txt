@@ -1,0 +1,58 @@
+CREATE TABLE employees (
+    employee_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE,
+    department VARCHAR(50),
+    job_title VARCHAR(100),
+    salary DECIMAL(10,2),
+    hire_date DATE
+);
+
+INSERT INTO employees
+(first_name, last_name, email, department, job_title, salary, hire_date)
+VALUES
+('John', 'Smith', 'john.smith@example.com', 'IT', 'Software Engineer', 65000.00, '2022-01-15'),
+('Emma', 'Johnson', 'emma.johnson@example.com', 'HR', 'HR Manager', 72000.00, '2021-03-10'),
+('Michael', 'Brown', 'michael.brown@example.com', 'Finance', 'Accountant', 58000.00, '2023-05-20'),
+('Sophia', 'Davis', 'sophia.davis@example.com', 'Marketing', 'Marketing Executive', 55000.00, '2022-07-12'),
+('James', 'Wilson', 'james.wilson@example.com', 'IT', 'Web Developer', 62000.00, '2023-02-18'),
+('Olivia', 'Miller', 'olivia.miller@example.com', 'Sales', 'Sales Executive', 50000.00, '2021-11-05'),
+('William', 'Moore', 'william.moore@example.com', 'IT', 'Database Administrator', 70000.00, '2020-09-25'),
+('Ava', 'Taylor', 'ava.taylor@example.com', 'HR', 'HR Executive', 52000.00, '2023-01-10'),
+('Daniel', 'Anderson', 'daniel.anderson@example.com', 'Finance', 'Financial Analyst', 68000.00, '2022-04-22'),
+('Isabella', 'Thomas', 'isabella.thomas@example.com', 'Marketing', 'Content Manager', 57000.00, '2023-06-14'),
+('Matthew', 'Jackson', 'matthew.jackson@example.com', 'IT', 'System Administrator', 66000.00, '2021-08-30'),
+('Mia', 'White', 'mia.white@example.com', 'Sales', 'Sales Manager', 75000.00, '2020-12-01'),
+('Alexander', 'Harris', 'alexander.harris@example.com', 'Finance', 'Finance Manager', 82000.00, '2019-10-15'),
+('Charlotte', 'Martin', 'charlotte.martin@example.com', 'HR', 'Recruiter', 48000.00, '2024-01-08'),
+('Benjamin', 'Thompson', 'benjamin.thompson@example.com', 'IT', 'DevOps Engineer', 73000.00, '2022-09-19'),
+('Amelia', 'Garcia', 'amelia.garcia@example.com', 'Marketing', 'SEO Specialist', 54000.00, '2023-03-25'),
+('Ethan', 'Martinez', 'ethan.martinez@example.com', 'Sales', 'Sales Representative', 47000.00, '2024-02-12'),
+('Harper', 'Robinson', 'harper.robinson@example.com', 'Finance', 'Financial Assistant', 45000.00, '2024-04-05'),
+('Lucas', 'Clark', 'lucas.clark@example.com', 'IT', 'Software Tester', 59000.00, '2023-08-17'),
+('Evelyn', 'Rodriguez', 'evelyn.rodriguez@example.com', 'HR', 'Training Coordinator', 51000.00, '2022-06-28');
+ALTER TABLE employees
+ADD COLUMN gender ENUM('Male', 'Female') NOT NULL DEFAULT 'Male';
+UPDATE employees
+SET gender = 'Female'
+WHERE employee_id IN (2, 4, 8, 10, 14, 16, 18, 20);
+-- select count(*)  from employees where gender='male';
+-- select count(*)  from employees where gender='female';
+-- SELECT employee_id,first_name,last_name,email,job_title,hire_date ,salary from employees where gender='female';
+-- SELECT employee_id,first_name,last_name,email,job_title,hire_date ,salary from employees where gender='male';
+-- select avg(salary) as avg_salary from employees where gender='male';
+-- select avg(salary) as avg_salary from employees where gender='female';
+-- select gender, avg(salary) as avg_salary from employees group by gender;
+-- select first_name,length(first_name)as name_len from employees;
+-- select first_name,lower(first_name)as lower from employees;
+-- select first_name,concat(lower(first_name),floor(rand() *1000))as username from employees;
+-- select salary,
+-- round(salary) as rounded,floor(salary)as floored,ceil(salary) as ceiled from employees; 
+-- select sum(salary) as total from employees;
+-- select sum(salary) as total from employees where gender='male';
+-- select sum(salary) as total from employees where gender='female';
+-- select  gender,sum(salary) as total from employees group by gender;
+ -- select min(salary) as min from employees;
+-- select max(salary) as max from employees;
+-- select gender, min(salary) as min,max(salary) as max from employees group by gender;
